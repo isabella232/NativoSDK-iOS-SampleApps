@@ -30,6 +30,11 @@ class ArticleCell: UITableViewCell, NtvAdInterface {
             self.contentView.backgroundColor = UIColor.white
         }
     }
+ 
+    func shouldPrependAuthorByline() -> Bool {
+        return false
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

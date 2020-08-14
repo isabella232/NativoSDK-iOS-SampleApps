@@ -9,6 +9,6 @@
 
 @import NativoSDK;
 
-@interface ArticleListViewController: UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UITableViewDataSourcePrefetching, NtvSectionDelegate>
+@interface ArticleListViewController: UIViewController
 
 @end

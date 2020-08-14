@@ -17,7 +17,7 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
 #define AD_ROW_START 4
 #define AD_ROW_INTERVAL 10
 
-@interface ArticleListViewController ()
+@interface ArticleListViewController () <UITableViewDataSource, UITableViewDelegate, NtvSectionDelegate>
 @property (nonatomic) NSCache *feedImgCache;
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) IBOutlet UITableView *tableView;
@@ -36,7 +36,7 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     
     // Enable Test Nativo Test & Debug mode
     [NativoSDK enableDevLogs];
-    [NativoSDK enableTestAdvertisementsWithAdType:NtvTestAdTypeNative];
+    [NativoSDK enableTestAdvertisements];
 
     // Setup Section
     [NativoSDK setSectionDelegate:self forSection:NativoSectionUrl];
@@ -45,29 +45,10 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     [NativoSDK registerNib:[UINib nibWithNibName:@"ArticleNativeAdView" bundle:nil] forAdTemplateType:NtvAdTemplateTypeNative];
     [NativoSDK registerNib:[UINib nibWithNibName:@"ArticleVideoAdView" bundle:nil] forAdTemplateType:NtvAdTemplateTypeVideo];
     
-    // Register Nativo template types using Dynamic Prototype Cells (Main.storyboard)
-    //[NativoSDK registerReuseId:ArticleCellIdentifier forAdTemplateType:NtvAdTemplateTypeNative];
-    //[NativoSDK registerReuseId:VideoCellIdentifier forAdTemplateType:NtvAdTemplateTypeVideo];
-    
     [NativoSDK registerNib:[UINib nibWithNibName:@"SponsoredLandingPageViewController" bundle:nil] forAdTemplateType:NtvAdTemplateTypeLandingPage];
-    
-    self.tableView.prefetchDataSource = self;
-    
+        
     [self startArticleFeed];
 }
-
-#pragma mark - UITableViewDataSourcePrefetching methods
-
-// Prefetch Nativo ads using the UITableViewDataSourcePrefetching protocol
-- (void)tableView:(UITableView *)tableView prefetchRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
-    for (NSIndexPath *indexPath in indexPaths) {
-        BOOL isNativoAdPlacement = indexPath.row >= AD_ROW_START && (indexPath.row - AD_ROW_START) % AD_ROW_INTERVAL == 0;
-        if (isNativoAdPlacement) {
-            [NativoSDK prefetchAdForSection:NativoSectionUrl atLocationIdentifier:indexPath options:nil];
-        }
-    }
-}
-
 
 #pragma mark - UITableViewDataSource methods
 
