@@ -17,6 +17,6 @@ All apps require [Cocoapods be installed](https://cocoapods.org/). From terminal
 
 ## Documentation
 
-Please refer to sdk.nativo.com/docs/getting-started-ios for our complete guide.
+Please refer to [sdk.nativo.com](https://sdk.nativo.com/docs/getting-started-ios) for our complete guide.
 
 
