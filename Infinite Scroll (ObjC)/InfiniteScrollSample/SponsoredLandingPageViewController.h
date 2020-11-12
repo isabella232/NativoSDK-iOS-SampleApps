@@ -20,5 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *authorImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *previewImageView;
 @property (nonatomic, weak) IBOutlet NtvContentWebView *nativoWebView;
+@property (nonatomic) NSString *shareUrl;
+@property (nonatomic) TrackDidShareBlock trackDidShare;
 
 @end

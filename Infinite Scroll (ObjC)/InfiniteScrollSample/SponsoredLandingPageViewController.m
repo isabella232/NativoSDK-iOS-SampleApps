@@ -24,7 +24,7 @@
 
 
 -(void)shareButtonTouched {
-    NSString *socialUrl = [NtvSharing getShareLinkForPlatform:NtvSharePlatformOther withAd:self.adData];
+    NSString *socialUrl = self.shareUrl;
     
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[socialUrl] applicationActivities:nil];
     avc.completionWithItemsHandler = ^(UIActivityType __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError) {
@@ -35,8 +35,7 @@
         } else if ([activityType isEqualToString: UIActivityTypePostToTwitter]) {
             sharePlatform = NtvSharePlatformTwitter;
         }
-        
-        [NtvSharing trackShareActionForPlatform:sharePlatform withAd:self.adData];
+        self.trackDidShare(sharePlatform);
     };
     UIViewController *rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
     [rootVC presentViewController:avc animated:YES completion:nil];

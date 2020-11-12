@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		A76EB284217AA4EF00EFDBAE /* ArticleVideoAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EB283217AA4EF00EFDBAE /* ArticleVideoAdCell.swift */; };
 		A76EB289217E517700EFDBAE /* nativoblog.json in Resources */ = {isa = PBXBuildFile; fileRef = A76EB288217E517700EFDBAE /* nativoblog.json */; };
 		A76EB28B217E518100EFDBAE /* sponsoredindicator.png in Resources */ = {isa = PBXBuildFile; fileRef = A76EB28A217E518100EFDBAE /* sponsoredindicator.png */; };
+		C6DA63F6BAF2EF4640AE7126 /* Pods_NativoSwiftTableViewSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD10198CA310E3B4F17C4157 /* Pods_NativoSwiftTableViewSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		422B2DDF240DAFFB001A519A /* NativoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF07B29C48BDC025A84F7C4 /* Pods-NativoSwiftTableViewSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativoSwiftTableViewSample.debug.xcconfig"; path = "Target Support Files/Pods-NativoSwiftTableViewSample/Pods-NativoSwiftTableViewSample.debug.xcconfig"; sourceTree = "<group>"; };
+		65DB2CA83A30FA0953B51E99 /* Pods-NativoSwiftTableViewSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativoSwiftTableViewSample.release.xcconfig"; path = "Target Support Files/Pods-NativoSwiftTableViewSample/Pods-NativoSwiftTableViewSample.release.xcconfig"; sourceTree = "<group>"; };
 		A7007E62230DEFC5009663D1 /* SponsoredLandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsoredLandingPageViewController.swift; sourceTree = "<group>"; };
 		A739EB15230C961900D5DE52 /* ArticleVideoAdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleVideoAdCell.xib; sourceTree = "<group>"; };
 		A739EB16230C961900D5DE52 /* ArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		A76EB283217AA4EF00EFDBAE /* ArticleVideoAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleVideoAdCell.swift; sourceTree = "<group>"; };
 		A76EB288217E517700EFDBAE /* nativoblog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nativoblog.json; sourceTree = "<group>"; };
 		A76EB28A217E518100EFDBAE /* sponsoredindicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sponsoredindicator.png; sourceTree = "<group>"; };
+		FD10198CA310E3B4F17C4157 /* Pods_NativoSwiftTableViewSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativoSwiftTableViewSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,18 +68,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DA63F6BAF2EF4640AE7126 /* Pods_NativoSwiftTableViewSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96A087788EB9C721066337B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AF07B29C48BDC025A84F7C4 /* Pods-NativoSwiftTableViewSample.debug.xcconfig */,
+				65DB2CA83A30FA0953B51E99 /* Pods-NativoSwiftTableViewSample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A76EB24F217A58BF00EFDBAE = {
 			isa = PBXGroup;
 			children = (
 				A76EB25A217A58BF00EFDBAE /* NativoSwiftTableViewSample */,
 				A76EB259217A58BF00EFDBAE /* Products */,
 				A76EB275217A96ED00EFDBAE /* Frameworks */,
+				96A087788EB9C721066337B3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +126,7 @@
 			children = (
 				422B2DDF240DAFFB001A519A /* NativoSDK.framework */,
 				A76EB276217A96ED00EFDBAE /* AdSupport.framework */,
+				FD10198CA310E3B4F17C4157 /* Pods_NativoSwiftTableViewSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,10 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A76EB26A217A58C000EFDBAE /* Build configuration list for PBXNativeTarget "NativoSwiftTableViewSample" */;
 			buildPhases = (
+				EA375348A858D7B2B40F8E9A /* [CP] Check Pods Manifest.lock */,
 				A76EB254217A58BF00EFDBAE /* Sources */,
 				A76EB255217A58BF00EFDBAE /* Frameworks */,
 				A76EB256217A58BF00EFDBAE /* Resources */,
 				422B2DE2240DAFFB001A519A /* Embed Frameworks */,
+				7BC6529248BA7ACEC861CD30 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,11 +173,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Nativo;
 				TargetAttributes = {
 					A76EB257217A58BF00EFDBAE = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -199,6 +218,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BC6529248BA7ACEC861CD30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NativoSwiftTableViewSample/Pods-NativoSwiftTableViewSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NativoSwiftTableViewSample/Pods-NativoSwiftTableViewSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NativoSwiftTableViewSample/Pods-NativoSwiftTableViewSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA375348A858D7B2B40F8E9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NativoSwiftTableViewSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A76EB254217A58BF00EFDBAE /* Sources */ = {
@@ -262,6 +323,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -324,6 +386,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -356,6 +419,7 @@
 		};
 		A76EB26B217A58C000EFDBAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AF07B29C48BDC025A84F7C4 /* Pods-NativoSwiftTableViewSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -374,13 +438,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		A76EB26C217A58C000EFDBAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65DB2CA83A30FA0953B51E99 /* Pods-NativoSwiftTableViewSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -399,7 +464,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

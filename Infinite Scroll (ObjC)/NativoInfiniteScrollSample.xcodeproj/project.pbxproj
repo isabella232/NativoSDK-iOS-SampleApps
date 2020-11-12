@@ -20,6 +20,7 @@
 		42CC3BE31E36D3DE0000E5C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC3BD01E36D3DE0000E5C3 /* main.m */; };
 		42CC3BE41E36D3DE0000E5C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42CC3BD11E36D3DE0000E5C3 /* Main.storyboard */; };
 		42CD395924E354AA00DA35EF /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42CD395824E3539900DA35EF /* image.xcassets */; };
+		74C98364B4F5C52F93AD1152 /* Pods_NativoInfiniteScrollSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC305366B5A6D7725CB3B726 /* Pods_NativoInfiniteScrollSample.framework */; };
 		A751517B218B901C0042C1B9 /* ArticleNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7515179218B901C0042C1B9 /* ArticleNativeAdView.xib */; };
 		A751517C218B901C0042C1B9 /* ArticleVideoAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A751517A218B901C0042C1B9 /* ArticleVideoAdView.xib */; };
 		A7EDF687230769350065B6BE /* ArticleNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EDF686230769350065B6BE /* ArticleNativeAdView.m */; };
@@ -67,12 +68,15 @@
 		42CC3BD21E36D3DE0000E5C3 /* SponsoredLandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsoredLandingPageViewController.h; sourceTree = "<group>"; };
 		42CD395824E3539900DA35EF /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
 		42CD397524E4B40400DA35EF /* NativoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5519A0FE69C62D878BB30C81 /* Pods-NativoInfiniteScrollSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativoInfiniteScrollSample.debug.xcconfig"; path = "Target Support Files/Pods-NativoInfiniteScrollSample/Pods-NativoInfiniteScrollSample.debug.xcconfig"; sourceTree = "<group>"; };
 		A7515179218B901C0042C1B9 /* ArticleNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleNativeAdView.xib; sourceTree = "<group>"; };
 		A751517A218B901C0042C1B9 /* ArticleVideoAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleVideoAdView.xib; sourceTree = "<group>"; };
 		A7EDF685230769350065B6BE /* ArticleNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleNativeAdView.h; sourceTree = "<group>"; };
 		A7EDF686230769350065B6BE /* ArticleNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleNativeAdView.m; sourceTree = "<group>"; };
 		A7EDF688230B6F5A0065B6BE /* ArticleVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleVideoTableViewCell.h; sourceTree = "<group>"; };
 		A7EDF689230B6F5A0065B6BE /* ArticleVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleVideoTableViewCell.m; sourceTree = "<group>"; };
+		C45E546D5D03A5954DF84449 /* Pods-NativoInfiniteScrollSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativoInfiniteScrollSample.release.xcconfig"; path = "Target Support Files/Pods-NativoInfiniteScrollSample/Pods-NativoInfiniteScrollSample.release.xcconfig"; sourceTree = "<group>"; };
+		FC305366B5A6D7725CB3B726 /* Pods_NativoInfiniteScrollSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativoInfiniteScrollSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C98364B4F5C52F93AD1152 /* Pods_NativoInfiniteScrollSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,7 @@
 				428273421992D6C400632979 /* InfiniteScrollSample */,
 				4282736F1992DF1B00632979 /* Frameworks */,
 				428273411992D6C400632979 /* Products */,
+				8E965C8CD278D77D07FB502E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +148,7 @@
 				4277862519A292B00005FC66 /* QuartzCore.framework */,
 				427D74DA199AF7CA00C1AD09 /* Foundation.framework */,
 				427D74A9199A96C800C1AD09 /* UIKit.framework */,
+				FC305366B5A6D7725CB3B726 /* Pods_NativoInfiniteScrollSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +164,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8E965C8CD278D77D07FB502E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5519A0FE69C62D878BB30C81 /* Pods-NativoInfiniteScrollSample.debug.xcconfig */,
+				C45E546D5D03A5954DF84449 /* Pods-NativoInfiniteScrollSample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,10 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 428273601992D6C400632979 /* Build configuration list for PBXNativeTarget "NativoInfiniteScrollSample" */;
 			buildPhases = (
+				00E8EC1F66DA3DC6F272DA3F /* [CP] Check Pods Manifest.lock */,
 				4282733C1992D6C400632979 /* Sources */,
 				4282733D1992D6C400632979 /* Frameworks */,
 				4282733E1992D6C400632979 /* Resources */,
 				A7EDF66E230758C30065B6BE /* Embed Frameworks */,
+				D150B30610F641F366459905 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,7 +202,7 @@
 		428273381992D6C400632979 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = Nativo;
 				TargetAttributes = {
 					4282733F1992D6C400632979 = {
@@ -229,6 +247,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00E8EC1F66DA3DC6F272DA3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NativoInfiniteScrollSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D150B30610F641F366459905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NativoInfiniteScrollSample/Pods-NativoInfiniteScrollSample-frameworks.sh",
+				"${PODS_ROOT}/NativoSDK/Framework/NativoSDK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NativoSDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NativoInfiniteScrollSample/Pods-NativoInfiniteScrollSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4282733C1992D6C400632979 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,6 +333,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -328,6 +390,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -356,6 +419,7 @@
 		};
 		428273611992D6C400632979 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5519A0FE69C62D878BB30C81 /* Pods-NativoInfiniteScrollSample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -388,6 +452,7 @@
 		};
 		428273621992D6C400632979 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C45E546D5D03A5954DF84449 /* Pods-NativoInfiniteScrollSample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

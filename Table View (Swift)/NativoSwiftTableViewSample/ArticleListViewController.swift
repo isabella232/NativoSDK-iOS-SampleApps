@@ -89,7 +89,7 @@ extension ArticleListViewController: UITableViewDataSource, UITableViewDelegate 
             let articleCell: ArticleCell = tableView.dequeueReusableCell(withIdentifier: ArticleCellIdentifier, for: indexPath) as! ArticleCell
             
             // Get the adjusted index path so we account for possible ad displacement in datasource
-            var custom : IndexPath = NativoSDK.getAdjustedIndexPath(indexPath, forAdsInjectedInSection: NativoSectionUrl)
+            let custom : IndexPath = NativoSDK.getAdjustedIndexPath(indexPath, forAdsInjectedInSection: NativoSectionUrl)
             let row = custom.row
             let data = self.articlesDataSource[row]
             self.injectCell(articleCell, withData: data)

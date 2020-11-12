@@ -18,6 +18,8 @@ class SponsoredLandingPageViewController: UIViewController, NtvLandingPageInterf
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var contentWKWebView: WKWebView!
 
+    var shareUrl: String?
+    var trackDidShare: TrackDidShareBlock!
     var shareBtn : UIBarButtonItem?
     var adData : NtvAdData?
     
@@ -43,7 +45,7 @@ class SponsoredLandingPageViewController: UIViewController, NtvLandingPageInterf
     
     @objc
     func socialShareButtonClick() {
-        if let socialURL = NtvSharing.getShareLink(for: .other, withAd: self.adData!) {
+        if let socialURL = self.shareUrl {
             let avc = UIActivityViewController(activityItems: [socialURL], applicationActivities: nil)
             avc.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
                 var sharePlatform = NtvSharePlatform.other
@@ -53,7 +55,7 @@ class SponsoredLandingPageViewController: UIViewController, NtvLandingPageInterf
                 else if activityType == UIActivity.ActivityType.postToTwitter {
                     sharePlatform = NtvSharePlatform.twitter
                 }
-                NtvSharing.trackShareAction(for: sharePlatform, withAd: self.adData!)
+                self.trackDidShare(sharePlatform)
             }
             self.present(avc, animated: true, completion: nil)
         }
