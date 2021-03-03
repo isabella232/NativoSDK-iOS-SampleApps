@@ -1,0 +1,170 @@
+{
+    "items": 
+    [
+        {
+            "id": "5b36967d03ce64ac85316e0f",
+            "addedOn": 1530306093746,
+            "updatedOn": 1530656304736,
+            "title": "Hacking the Hackathon ",
+            "excerpt": "Code Smash participants delivered over 47 individual features and infrastructure improvements",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/hacking-the-hackathon",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b36967d03ce64ac85316e0f/1530656304736/code-smash.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b357be2575d1f7d68d3b949",
+            "addedOn": 1530292295551,
+            "updatedOn": 1530306118505,
+            "title": "Slow Death: Latency Is a Weight Dragging Down Publishers’ Bottom Lines ",
+            "excerpt": "Website latency is a silent but efficient UX killer, siphoning off crucial audience and ad impressions.",
+            "author": "Chris LoRusso",
+            "fullUrl": "/blog/publisher-latency",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b357be2575d1f7d68d3b949/1530306118505/Latency.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b32765c0e2e72e2be32fa96",
+            "addedOn": 1530127211705,
+            "updatedOn": 1530205158871,
+            "title": "Nativo Announces Nativo v3 for Publishers",
+            "excerpt": "Nativo has just announced Nativo v3, a major update of our core technology for open web publishers",
+            "author": "Eugene Cherny",
+            "fullUrl": "/blog/nativo-v3",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b32765c0e2e72e2be32fa96/1530205158871/NATIVO-V3.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b2bdf51575d1fe23982a6eb",
+            "addedOn": 1529620070502,
+            "updatedOn": 1530304125691,
+            "title": "How Pharma Brands Use Native Content to Connect With Audiences ",
+            "excerpt": "What are the most successful advertising strategies employed by pharmaceutical brands?",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/native-content-pharma-brands",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b2bdf51575d1fe23982a6eb/1530304125691/1500x533.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b241c661ae6cf19f78ee6c9",
+            "addedOn": 1529111806247,
+            "updatedOn": 1530033992032,
+            "title": "What to Watch for at Cannes Lions",
+            "excerpt": "The&nbsp;Cannes Lions International Festival of Creativity&nbsp;is the world’s largest festival for the entertainment, design, tech, and creative and marketing communications industries.",
+            "author": "Chris Rooke",
+            "fullUrl": "/blog/cannes-lions-preview",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b241c661ae6cf19f78ee6c9/1530033992032/Cannes-Header.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b22a6ed88251bd114644cd8",
+            "addedOn": 1529012883061,
+            "updatedOn": 1529018756115,
+            "title": "How Nativo's Values Show Up in Our Work Every Day",
+            "excerpt": "Nativo’s values — passion, innovation, execution, teamwork, and leadership — are instilled into everything we do.",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/nativo-values",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b22a6ed88251bd114644cd8/1529018756115/nativo-values+%281%29.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b33d7dd562fa7c0a1d3d556",
+            "addedOn": 1528840440873,
+            "updatedOn": 1530144855225,
+            "title": "Native Distribution: Principles for Creative Best Practice",
+            "excerpt": "IAB UK | June 12, 2018 - Labeling sponsored content ensures transparency and improves the consumer experience. ",
+            "author": "Hohn Jaake",
+            "fullUrl": "/blog/creative-best-practices-iab",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b33d7dd562fa7c0a1d3d556/1530144855225/Blog+Post+Header+Template+label.jpg",
+            "contentType": "image/jpeg"
+        },
+        {
+            "id": "5b1eb530575d1fb7254c7ff0",
+            "addedOn": 1528739594441,
+            "updatedOn": 1528997613577,
+            "title": "A Return To Context: How Audience Obsession Led Marketers Astray",
+            "excerpt": "MediaPost | June 11, 2018 - Protecting one’s brand doesn’t mean giving up placements alongside dynamic categories of content like news. ",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/return-to-context",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b1eb530575d1fb7254c7ff0/1528997613577/context.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b0dd9e4352f53e2ba25b091",
+            "addedOn": 1528735020380,
+            "updatedOn": 1528826803984,
+            "title": "Nativo Is the Largest Native Advertising Marketplace, According to comScore",
+            "excerpt": "comScore data shows Nativo delivers more desktop and mobile monthly uniques than any native provider. ",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/worlds-largest-native-marketplace",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b0dd9e4352f53e2ba25b091/1528826803984/Largest-Native-Marketplace.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5aff0de588251b88948c62b8",
+            "addedOn": 1528404954774,
+            "updatedOn": 1528472682388,
+            "title": "Nativo and OmniVirt Team to Distribute Immersive Ad Formats ",
+            "excerpt": "Immersive content sets the stage for deeper, more active user engagement, leading advertisers to add it to their digital marketing arsenal. ",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/omnivirt-immersive-content",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5aff0de588251b88948c62b8/1528472682388/omnivirt-header-image.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b18836503ce64e055d1c924",
+            "addedOn": 1528337186343,
+            "updatedOn": 1529012982481,
+            "title": "Nativo Employees Give Back During Global Volunteer Week",
+            "excerpt": "Passion and teamwork are two of Nativo’s core values, but this isn’t confined to just the work we do at the office.",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/nativo-global-volunteer-week",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b18836503ce64e055d1c924/1529012982481/VolunteerWeek-HeaderImage+%281%29+%281%29.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b16dac003ce6410592e1643",
+            "addedOn": 1528227312947,
+            "updatedOn": 1529601873539,
+            "title": "4 Verticals Where Native Shines — and Why",
+            "excerpt": "As overall native advertising spend rises year over year, four vertical markets stand out for their significant investment in native. ",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/4-verticals-native-advertising-success",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b16dac003ce6410592e1643/1529601873539/4-verticals-where-native-shines+%281%29.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b0715011ae6cf0301292128",
+            "addedOn": 1528139285115,
+            "updatedOn": 1528745777893,
+            "title": "Native Advertising Gets an A+ for Back-to-School Season",
+            "excerpt": "Reaching back-to-school shoppers with seasonal content increases engagement and drives sales. ",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/seasonal-content-strategy-back-to-school",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b0715011ae6cf0301292128/1528745777893/back-to-school.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b0d90e588251b7c897ded1f",
+            "addedOn": 1527616688364,
+            "updatedOn": 1528739024873,
+            "title": "As the Shift to Mobile Continues, Look to Video to Drive Growth",
+            "excerpt": "Native Advertising Institute | May 28, 2018 -&nbsp;The days of interruptive, irritating pre-roll ads may be coming to an end.",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/mobile-advertising-native-video",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b0d90e588251b7c897ded1f/1528739024873/mobile%2Badvertising%2Bnative%2Bvideo.png",
+            "contentType": "image/png"
+        },
+        {
+            "id": "5b05bf4a758d468733afdd82",
+            "addedOn": 1527187857806,
+            "updatedOn": 1527187945890,
+            "title": "[Webinar] Which Brands Are Doubling Down on Native Investment? ",
+            "excerpt": "This session will provide digital marketers an understanding of the trends within their respective industries.",
+            "author": "Anna Boudinot",
+            "fullUrl": "/blog/sonar-webinar",
+            "assetUrl": "https://static1.squarespace.com/static/57f4f7ad725e25e4b385429f/57f7b06ab3db2bbcce9523a3/5b05bf4a758d468733afdd82/1527187945890/Casey-SONAR.png",
+            "contentType": "image/png"
+        }
+    ]
+}
