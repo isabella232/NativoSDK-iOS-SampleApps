@@ -16,6 +16,7 @@ class ArticleListViewController: UIViewController {
     let dateFormatter = DateFormatter()
     let ArticleCellIdentifier = "articlecell"
     let VideoCellIdentifier = "videocell"
+    let NativoReuseIdentifier = "nativoCell"
     let NativoSectionUrl = "http://www.publisher.com/test"
     let NativoAdRow1 = 3
     let NativoAdRow2 = 9
@@ -33,7 +34,7 @@ class ArticleListViewController: UIViewController {
         NativoSDK.register(UINib(nibName: "SponsoredLandingPageViewController", bundle: nil), for: .landingPage)
         
         // Register blank cell to be used as container for Nativo ads
-        self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "nativocell")
+        self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: NativoReuseIdentifier)
         self.tableView.prefetchDataSource = self;
         
         startArticleFeed()
@@ -42,7 +43,11 @@ class ArticleListViewController: UIViewController {
 
 extension ArticleListViewController: NtvSectionDelegate {
     
-    func section(_ sectionUrl: String, needsReloadDatasourceAtLocationIdentifier identifier: Any, forReason reason: String) {
+    func section(_ sectionUrl: String, needsPlaceAdInViewAtLocation identifier: Any) {
+        self.tableView.reloadData()
+    }
+    
+    func section(_ sectionUrl: String, needsRemoveAdViewAtLocation identifier: Any) {
         self.tableView.reloadData()
     }
     
@@ -78,10 +83,8 @@ extension ArticleListViewController: UITableViewDataSource, UITableViewDelegate 
         var didGetNativoAdFill: Bool = false
         var cell: UITableViewCell! // Will always be initialized in this control flow so we can safely declare as implicitley unwrapped optional
         if isNativoAdPlacement {
-            let nativoReuseId = "nativocell" // use seperate reuse id for Nativo ads
-            
             // Using NativoSDK View API to inject ad into cell. The response will let you know if ad placement was filled.
-            cell = tableView.dequeueReusableCell(withIdentifier: nativoReuseId, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: NativoReuseIdentifier, for: indexPath)
             didGetNativoAdFill = NativoSDK.placeAd(in: cell, atLocationIdentifier: indexPath, inContainer: tableView, forSection: NativoSectionUrl)
         }
         

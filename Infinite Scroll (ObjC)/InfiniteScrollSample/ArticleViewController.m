@@ -38,10 +38,10 @@ NSString * const SECTION_URL = @"nativo.net/bottomofarticle";
     [self.loadingView stopAnimating];
     [self.webView expandWebViewToFitContents];
     
-    // Place Nativo ad in view when webview has finished loading
+    // Wait for webview to finish load before requesting ad
     if (self.nativoAdView.subviews.count == 0) {
         [NativoSDK setSectionDelegate:self forSection:SECTION_URL];
-        [NativoSDK placeAdInView:self.nativoAdView atLocationIdentifier:self.articleURL inContainer:self.scrollView forSection:SECTION_URL options:nil];
+        [NativoSDK prefetchAdForSection:SECTION_URL atLocationIdentifier:@"bottom" options:nil];
     }
 }
 
@@ -60,14 +60,18 @@ NSString * const SECTION_URL = @"nativo.net/bottomofarticle";
     }
 }
 
-- (void)section:(NSString *)sectionUrl needsReloadDatasourceAtLocationIdentifier:(id)identifier forReason:(NSString *)reason {
+- (void)section:(NSString *)sectionUrl needsRemoveAdViewAtLocation:(id)identifier {
+    // Set height to 0 instead of remove (If removed from parent view you will need to reapply autolayout constraints)
+    [self.nativoAdView.heightAnchor constraintEqualToConstant:0].active = YES;
+    NSLog(@"Removing Nativo ad view");
+}
+
+- (void)section:(NSString *)sectionUrl needsPlaceAdInViewAtLocation:(id)identifier {
     
-    if ([reason isEqualToString:NtvSectionReloadReasonRemoveView]) {
-        
-        // Set height to 0 instead of remove (If removed from parent view you will need to reapply autolayout constraints)
-        [self.nativoAdView.heightAnchor constraintEqualToConstant:0].active = YES;
-        NSLog(@"Removing Nativo ad view");
-    }
+}
+
+- (void)section:(NSString *)sectionUrl didReceiveAd:(NtvAdData *)adData {
+    [NativoSDK placeAdInView:self.nativoAdView atLocationIdentifier:self.articleURL inContainer:self.scrollView forSection:sectionUrl options:nil];
 }
 
 - (void)section:(NSString *)sectionUrl needsDisplayLandingPage:(UIViewController<NtvLandingPageInterface> *)sponsoredLandingPageViewController {

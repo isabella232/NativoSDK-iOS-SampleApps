@@ -48,6 +48,16 @@ extension ArticleViewController: WKNavigationDelegate {
 
 extension ArticleViewController: NtvSectionDelegate {
     
+    func section(_ sectionUrl: String, needsPlaceAdInViewAtLocation identifier: Any) {
+        
+    }
+    
+    func section(_ sectionUrl: String, needsRemoveAdViewAtLocation identifier: Any) {
+        // Set height to 0 instead of remove (If removed from parent view you will need to reapply autolayout constraints)
+        self.nativoAdView.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        print("Removed Nativo ad view")
+    }
+    
     func section(_ sectionUrl: String, registerNibNameFor templateType: NtvAdTemplateType, atLocationIdentifier locationIdentifier: Any) -> String? {
         switch templateType {
             
@@ -61,17 +71,7 @@ extension ArticleViewController: NtvSectionDelegate {
             return nil
         }
     }
-    
-    func section(_ sectionUrl: String, needsReloadDatasourceAtLocationIdentifier identifier: Any, forReason reason: String) {
-        
-        if reason == NtvSectionReloadReasonRemoveView {
-            
-            // Set height to 0 instead of remove (If removed from parent view you will need to reapply autolayout constraints)
-            self.nativoAdView.widthAnchor.constraint(equalToConstant: 0).isActive = true
-            print("Removed Nativo ad view")
-        }
-    }
-    
+
     func section(_ sectionUrl: String, needsDisplayLandingPage sponsoredLandingPageViewController: (UIViewController & NtvLandingPageInterface)?) {
         if let landingPage = sponsoredLandingPageViewController {
             self.navigationController?.pushViewController(landingPage, animated: true)
@@ -86,5 +86,4 @@ extension ArticleViewController: NtvSectionDelegate {
         webView.loadRequest(clickoutReq)
         self.navigationController?.pushViewController(clickoutAdVC, animated: true)
     }
-    
 }

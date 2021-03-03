@@ -86,7 +86,11 @@ extension ArticleListViewController : GADBannerViewDelegate, GADAdSizeDelegate, 
 
 extension ArticleListViewController: NtvSectionDelegate {
     
-    func section(_ sectionUrl: String, needsReloadDatasourceAtLocationIdentifier identifier: Any, forReason reason: String) {
+    func section(_ sectionUrl: String, needsPlaceAdInViewAtLocation identifier: Any) {
+        self.tableView.reloadData()
+    }
+    
+    func section(_ sectionUrl: String, needsRemoveAdViewAtLocation identifier: Any) {
         self.tableView.reloadData()
     }
     

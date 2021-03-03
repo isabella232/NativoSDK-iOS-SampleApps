@@ -46,8 +46,38 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     [NativoSDK registerNib:[UINib nibWithNibName:@"ArticleVideoAdView" bundle:nil] forAdTemplateType:NtvAdTemplateTypeVideo];
     
     [NativoSDK registerNib:[UINib nibWithNibName:@"SponsoredLandingPageViewController" bundle:nil] forAdTemplateType:NtvAdTemplateTypeLandingPage];
+    
+    // Cell used as nativo ad container
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"nativocell"];
         
     [self startArticleFeed];
+}
+
+
+#pragma mark - NtvSectionDelegate Methods
+
+- (void)section:(NSString *)sectionUrl needsPlaceAdInViewAtLocation:(id)identifier {
+    [self.tableView reloadData];
+}
+
+- (void)section:(NSString *)sectionUrl needsRemoveAdViewAtLocation:(id)identifier {
+    [self.tableView reloadData];
+}
+
+- (void)section:(NSString *)sectionUrl needsDisplayLandingPage:(nullable UIViewController *)sponsoredLandingPageViewController {
+    //Push the sponsored landing page to the navigationController
+    [self.navigationController pushViewController:sponsoredLandingPageViewController animated:YES];
+}
+
+- (void)section:(NSString *)sectionUrl needsDisplayClickoutURL:(NSURL *)url {
+    
+    // Load click-out url in WKWebView
+    UIViewController *clickoutAdVC = [[UIViewController alloc] init];
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:clickoutAdVC.view.frame];
+    [clickoutAdVC.view addSubview:webView];
+    NSURLRequest *clickoutReq = [NSURLRequest requestWithURL:url];
+    [webView loadRequest: clickoutReq];
+    [self.navigationController pushViewController:clickoutAdVC animated:YES];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -58,13 +88,17 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
         [self getNextFeedItems];
     }
     
-    // Use the NativoSDK to request UITableViewCells for both articles & Nativo ads
-    // It will use the NtvSectionDelegate method `shouldPlaceAdAtIndex` to discover which rows should be Nativo ad units
-    // Our cell identifier will be used to dequeue a cell if no ad exists at this index path.
-    UITableViewCell *cell = [NativoSDK dequeueCellWithAdFromTableView:tableView usingReuseIdentifierIfNoAd:ArticleCellIdentifier forSection:NativoSectionUrl atPlacementIndex:indexPath options:nil];
+    UITableViewCell *cell = nil;
+    BOOL isNativoAdPlacement = indexPath.row % AD_ROW_INTERVAL == AD_ROW_START;
+    BOOL didGetNativoAdFill = NO;
+    if (isNativoAdPlacement) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"nativocell"];
+        didGetNativoAdFill = [NativoSDK placeAdInView:cell atLocationIdentifier:indexPath inContainer:tableView forSection:NativoSectionUrl options:nil];
+    }
     
-    // Check cell's identifier, if it matches the identifier we passed to NativoSDK then that means there is no ad for this cell - meaning we must populate it ourselves
-    if ([cell.reuseIdentifier isEqualToString:ArticleCellIdentifier]) {
+    // If not a Nativo ad placement, or if the placement had no fill, we must populate the cell with article data
+    if (!didGetNativoAdFill) {
+        cell = [tableView dequeueReusableCellWithIdentifier:ArticleCellIdentifier];
         
         // One last step. Here we ask the NativoSDK to adjust the indexpath to account for any ads we may have recieved.
         NSIndexPath *adjustedIndexPathWithAds = [NativoSDK getAdjustedIndexPath:indexPath forAdsInjectedInSection:NativoSectionUrl];
@@ -72,8 +106,6 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
         
         // Populate cell with data
         [self populateCell:(ArticleCell *)cell WithData:feedItem];
-    }else {
-        NSLog(@"nativo");
     }
 
     return cell;
@@ -99,40 +131,6 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     article.articleURL = [NSURL URLWithString:articleUrlStr];
     [self.navigationController pushViewController:article animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
-
-#pragma mark - NtvSectionDelegate Methods
-
-- (BOOL)section:(NSString *)sectionUrl shouldPlaceAdAtIndex:(NSIndexPath *)index {
-    if (index.row % AD_ROW_INTERVAL == AD_ROW_START) {
-        return YES;
-    }
-    return NO;
-}
-
-- (void)section:(NSString *)sectionUrl needsReloadDatasourceAtLocationIdentifier:(id)identifier forReason:(NSString *)reason {
-    NSLog(@"Section needs reload datasource for reason: %@", reason);
-    if (self.articlesDataSource.count > 0) {
-        [self.tableView reloadData];
-    }
-}
-
-- (void)section:(NSString *)sectionUrl needsDisplayLandingPage:(nullable UIViewController *)sponsoredLandingPageViewController {
-    //Push the sponsored landing page to the navigationController
-    [self.navigationController pushViewController:sponsoredLandingPageViewController animated:YES];
-}
-
-- (void)section:(NSString *)sectionUrl needsDisplayClickoutURL:(NSURL *)url {
-    
-    // Load click-out url in WKWebView
-    UIViewController *clickoutAdVC = [[UIViewController alloc] init];
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:clickoutAdVC.view.frame];
-    [clickoutAdVC.view addSubview:webView];
-    NSURLRequest *clickoutReq = [NSURLRequest requestWithURL:url];
-    [webView loadRequest: clickoutReq];
-    [self.navigationController pushViewController:clickoutAdVC animated:YES];
 }
 
 

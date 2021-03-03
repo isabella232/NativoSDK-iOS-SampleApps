@@ -8,13 +8,13 @@
 import UIKit
 import NativoSDK
 
-private let reuseIdentifier = "Cell"
-private let sectionUrl = "publisher.com/home"
-
 
 class CollectionViewController: UICollectionViewController {
     
     var feedImgCache = Dictionary<URL, UIImage>()
+    let ReuseIdentifier = "Cell"
+    let NativoReuseIdentifier = "nativoCell"
+    let SectionUrl = "publisher.com/home"
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
@@ -26,10 +26,13 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         NativoSDK.enableDevLogs()
         NativoSDK.enableTestAdvertisements()
-        NativoSDK.setSectionDelegate(self, forSection: sectionUrl)
-        NativoSDK.registerReuseId(reuseIdentifier, for: .native) // reuseIdentifier "Cell" comes from Main.storyboard dynamic prototype cell
+        NativoSDK.setSectionDelegate(self, forSection: SectionUrl)
+        NativoSDK.registerReuseId(ReuseIdentifier, for: .native) // reuseIdentifier "Cell" comes from Main.storyboard dynamic prototype cell
         NativoSDK.register(UINib(nibName: "NativoVideoViewCell", bundle: nil), for: .video)
         NativoSDK.register(UINib(nibName: "SponsoredLandingPageViewController", bundle: nil), for: .landingPage)
+        
+        // Register specialized collectionViewCell for Nativo
+        self.collectionView.register(NtvCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: NativoReuseIdentifier)
         self.collectionView.prefetchDataSource = self
     }
 
@@ -45,12 +48,16 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
-        // Get the cell
-        let cell = NativoSDK.dequeueCellWithAd(from: collectionView, usingReuseIdentifierIfNoAd: reuseIdentifier, forSection: sectionUrl, atPlacementIndex: indexPath) as UICollectionViewCell
+        var cell: UICollectionViewCell! // Will always be initialized in this control flow so we can safely declare as implicitley unwrapped optional
+        var didGetNativoAdFill: Bool = false
+        let isNativoAdPlacement: Bool = isNativoIndexPath(indexPath)
+        if isNativoAdPlacement {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: NativoReuseIdentifier, for: indexPath)
+            didGetNativoAdFill = NativoSDK.placeAd(in: cell, atLocationIdentifier: indexPath, inContainer: collectionView, forSection: SectionUrl)
+        }
         
-        // Setup normal news cell - not Nativo
-        if let articleCell: CollectionViewCell = cell as? CollectionViewCell{
+        if !didGetNativoAdFill {
+            let articleCell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier, for: indexPath) as! CollectionViewCell
             articleCell.titleLabel.text = "Lorum Ipsom"
             articleCell.authorNameLabel.text = "John"
             articleCell.previewTextLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
@@ -62,11 +69,7 @@ class CollectionViewController: UICollectionViewController {
             getAsyncImage(forUrl: authorUrl!) { (authorimg) in
                 articleCell.authorImageView.image = authorimg
             }
-        }
-        
-        
-        if let featureCell: CollectionViewCell = cell as? CollectionViewCell{
-            // add cell title and image url
+            cell = articleCell
         }
         
         // set cell width
@@ -83,6 +86,13 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let articleViewController = ArticleViewController()
         self.navigationController?.pushViewController(articleViewController, animated: true)
+    }
+    
+    func isNativoIndexPath(_ indexPath: IndexPath) -> Bool {
+        // Determine where Nativo ad unit should go
+        let adStartRow = 1
+        let adIntervalRow = 5
+        return indexPath.row % adIntervalRow == adStartRow
     }
     
     func getAsyncImage(forUrl url: URL, completion: @escaping (UIImage?) -> Void) {
@@ -109,17 +119,12 @@ class CollectionViewController: UICollectionViewController {
 
 extension CollectionViewController: NtvSectionDelegate {
     
-    func section(_ sectionUrl: String, needsReloadDatasourceAtLocationIdentifier identifier: Any, forReason reason: String) {
-        self.collectionView?.reloadData()
+    func section(_ sectionUrl: String, needsPlaceAdInViewAtLocation identifier: Any) {
+        self.collectionView.reloadData()
     }
     
-    func section(_ sectionUrl: String, shouldPlaceAdAtIndex index: IndexPath) -> Bool {
-        let adStartRow = 1
-        let adIntervalRow = 5
-        if index.row % adIntervalRow == adStartRow {
-            return true
-        }
-        return false
+    func section(_ sectionUrl: String, needsRemoveAdViewAtLocation identifier: Any) {
+        self.collectionView.reloadData()
     }
     
     func section(_ sectionUrl: String, needsDisplayLandingPage sponsoredLandingPageViewController: (UIViewController & NtvLandingPageInterface)?) {
@@ -143,9 +148,8 @@ extension CollectionViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         // Prefetch Nativo SDK ads at specified index paths
         for indexPath in indexPaths {
-            let isNativoAdPlacement: Bool = section(sectionUrl, shouldPlaceAdAtIndex: indexPath)
-            if isNativoAdPlacement {
-                NativoSDK.prefetchAd(forSection: sectionUrl, atLocationIdentifier: indexPath, options: nil)
+            if isNativoIndexPath(indexPath) {
+                NativoSDK.prefetchAd(forSection: SectionUrl, atLocationIdentifier: indexPath, options: nil)
             }
         }
     }
