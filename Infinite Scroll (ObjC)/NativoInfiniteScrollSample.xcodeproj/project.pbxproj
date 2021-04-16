@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		426FC710262A061600B46687 /* NativoStandardDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FC70F262A061600B46687 /* NativoStandardDisplayView.m */; };
 		427CE728201BC4E300514B48 /* ArticleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427CE727201BC4E300514B48 /* ArticleViewController.xib */; };
 		42969DE6213777DD008659BF /* nativoblog.json in Resources */ = {isa = PBXBuildFile; fileRef = 42969DE5213777DC008659BF /* nativoblog.json */; };
 		42969DEC2138C557008659BF /* ArticleVideoAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42969DEB2138C557008659BF /* ArticleVideoAdView.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		4265A4D01C9F867500F01ADE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		426FC70E262A061600B46687 /* NativoStandardDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativoStandardDisplayView.h; sourceTree = "<group>"; };
+		426FC70F262A061600B46687 /* NativoStandardDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativoStandardDisplayView.m; sourceTree = "<group>"; };
 		4277862519A292B00005FC66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		427B56421BCDE2CA00429309 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		427CE727201BC4E300514B48 /* ArticleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleViewController.xib; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				A751517A218B901C0042C1B9 /* ArticleVideoAdView.xib */,
 				A7EDF688230B6F5A0065B6BE /* ArticleVideoTableViewCell.h */,
 				A7EDF689230B6F5A0065B6BE /* ArticleVideoTableViewCell.m */,
+				426FC70E262A061600B46687 /* NativoStandardDisplayView.h */,
+				426FC70F262A061600B46687 /* NativoStandardDisplayView.m */,
 				42CC3BD21E36D3DE0000E5C3 /* SponsoredLandingPageViewController.h */,
 				42CC3BBB1E36D3DE0000E5C3 /* SponsoredLandingPageViewController.m */,
 				42A4C05D1E984AC800D3FAD6 /* SponsoredLandingPageViewController.xib */,
@@ -304,6 +309,7 @@
 				42CC3BD41E36D3DE0000E5C3 /* ArticleListViewController.m in Sources */,
 				42CC3BD71E36D3DE0000E5C3 /* ArticleCell.m in Sources */,
 				42CC3BD51E36D3DE0000E5C3 /* SponsoredLandingPageViewController.m in Sources */,
+				426FC710262A061600B46687 /* NativoStandardDisplayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

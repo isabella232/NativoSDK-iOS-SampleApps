@@ -4,6 +4,7 @@
 #import "SponsoredLandingPageViewController.h"
 #import "AppDelegate.h"
 #import "ArticleViewController.h"
+#import "NativoStandardDisplayView.h"
 #import <WebKit/WebKit.h>
 #import <UIKit/UIKit.h>
 
@@ -44,12 +45,15 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     // Register Nativo template types using Nib files
     [NativoSDK registerNib:[UINib nibWithNibName:@"ArticleNativeAdView" bundle:nil] forAdTemplateType:NtvAdTemplateTypeNative];
     [NativoSDK registerNib:[UINib nibWithNibName:@"ArticleVideoAdView" bundle:nil] forAdTemplateType:NtvAdTemplateTypeVideo];
+    [NativoSDK registerClass:[NativoStandardDisplayView class] forAdTemplateType:NtvAdTemplateTypeStandardDisplay];
     
     [NativoSDK registerNib:[UINib nibWithNibName:@"SponsoredLandingPageViewController" bundle:nil] forAdTemplateType:NtvAdTemplateTypeLandingPage];
     
     // Cell used as nativo ad container
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"nativocell"];
-        
+    
+    [NativoSDK enableTestAdvertisementsWithAdType:NtvTestAdTypeStandardDisplay];
+            
     [self startArticleFeed];
 }
 
