@@ -91,7 +91,7 @@ class CollectionViewController: UICollectionViewController {
     func isNativoIndexPath(_ indexPath: IndexPath) -> Bool {
         // Determine where Nativo ad unit should go
         let adStartRow = 1
-        let adIntervalRow = 5
+        let adIntervalRow = 3
         return indexPath.row % adIntervalRow == adStartRow
     }
     

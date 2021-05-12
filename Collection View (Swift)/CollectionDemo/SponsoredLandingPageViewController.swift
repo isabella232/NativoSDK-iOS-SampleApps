@@ -48,14 +48,16 @@ class SponsoredLandingPageViewController: UIViewController, NtvLandingPageInterf
         if let socialURL = self.shareUrl {
             let avc = UIActivityViewController(activityItems: [socialURL], applicationActivities: nil)
             avc.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) in
-                var sharePlatform = NtvSharePlatform.other
-                if activityType == UIActivity.ActivityType.postToFacebook {
-                    sharePlatform = NtvSharePlatform.facebook
+                if (completed) {
+                    var sharePlatform = NtvSharePlatform.other
+                    if activityType == UIActivity.ActivityType.postToFacebook {
+                        sharePlatform = NtvSharePlatform.facebook
+                    }
+                    else if activityType == UIActivity.ActivityType.postToTwitter {
+                        sharePlatform = NtvSharePlatform.twitter
+                    }
+                    self.trackDidShare(sharePlatform)
                 }
-                else if activityType == UIActivity.ActivityType.postToTwitter {
-                    sharePlatform = NtvSharePlatform.twitter
-                }
-                self.trackDidShare(sharePlatform)
             }
             self.present(avc, animated: true, completion: nil)
         }
