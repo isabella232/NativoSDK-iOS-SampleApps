@@ -51,9 +51,7 @@ static NSString * const NativoSectionUrl = @"http://www.publisher.com/test";
     
     // Cell used as nativo ad container
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"nativocell"];
-    
-    [NativoSDK enableTestAdvertisementsWithAdType:NtvTestAdTypeStandardDisplay];
-            
+                
     [self startArticleFeed];
 }
 
