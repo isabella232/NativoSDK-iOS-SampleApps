@@ -155,10 +155,10 @@ extension ArticleListViewController {
             }
             if let imgData = try? Data.init(contentsOf: url) {
                 let image = UIImage.init(data: imgData)
-                if (image != nil) {
-                    self.feedImgCache[url] = image
-                }
                 DispatchQueue.main.async {
+                    if (image != nil) {
+                        self.feedImgCache[url] = image
+                    }
                     completion(image)
                 }
             }
