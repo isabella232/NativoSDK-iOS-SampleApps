@@ -19,14 +19,15 @@ class ArticleListViewController: UIViewController {
     let NativoReuseIdentifier = "nativoCell"
     let NativoSectionUrl = "http://www.publisher.com/test"
     let NativoAdRow1 = 3
-    let NativoAdRow2 = 9
+    let NativoAdRow2 = 7
+    let NativoAdRow3 = 12
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         
         NativoSDK.enableDevLogs()
-        NativoSDK.enableTestAdvertisements(with: NtvTestAdType.native)
+        NativoSDK.enableTestAdvertisements()
         
         NativoSDK.setSectionDelegate(self, forSection: NativoSectionUrl)
         NativoSDK.registerReuseId(ArticleCellIdentifier, for: .native) // These identifiers correlate to the dynamic prototype cells set in Main.storyboard
@@ -35,7 +36,6 @@ class ArticleListViewController: UIViewController {
         
         // Register blank cell to be used as container for Nativo ads
         self.tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: NativoReuseIdentifier)
-        self.tableView.prefetchDataSource = self;
         
         startArticleFeed()
     }
@@ -73,13 +73,14 @@ extension ArticleListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numAds = NativoSDK.getNumberOfAds(inSection: NativoSectionUrl, inTableOrCollectionSection: section, forNumberOfItemsInDatasource: self.articlesDataSource.count)
         let totalRows = self.articlesDataSource.count + numAds
-        print("-- Total Rows: \(totalRows)")
         return totalRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let isNativoAdPlacement: Bool = indexPath.row == NativoAdRow1 || indexPath.row == NativoAdRow2
+        let isNativoAdPlacement: Bool = indexPath.row == NativoAdRow1
+                                        || indexPath.row == NativoAdRow2
+                                        || indexPath.row == NativoAdRow3;
         var didGetNativoAdFill: Bool = false
         var cell: UITableViewCell! // Will always be initialized in this control flow so we can safely declare as implicitley unwrapped optional
         if isNativoAdPlacement {
@@ -110,19 +111,6 @@ extension ArticleListViewController: UITableViewDataSource, UITableViewDelegate 
             let articleViewController = ArticleViewController(nibName: "ArticleViewController", bundle: nil)
             articleViewController.articleURL = URL(string: articleUrlStr)
             self.navigationController?.pushViewController(articleViewController, animated: true)
-        }
-    }
-}
-
-extension ArticleListViewController: UITableViewDataSourcePrefetching {
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        // Prefetch Nativo SDK ads at specified index paths
-        for indexPath in indexPaths {
-            let isNativoAdPlacement = indexPath.row == NativoAdRow1 || indexPath.row == NativoAdRow2
-            if isNativoAdPlacement {
-                NativoSDK.prefetchAd(forSection: NativoSectionUrl, atLocationIdentifier: indexPath, options: nil)
-            }
         }
     }
 }
@@ -167,10 +155,10 @@ extension ArticleListViewController {
             }
             if let imgData = try? Data.init(contentsOf: url) {
                 let image = UIImage.init(data: imgData)
-//                if (image != nil) {
-//                    self.feedImgCache[url] = image
-//                }
                 DispatchQueue.main.async {
+                    if (image != nil) {
+                        self.feedImgCache[url] = image
+                    }
                     completion(image)
                 }
             }

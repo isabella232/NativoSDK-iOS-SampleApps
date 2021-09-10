@@ -22,7 +22,7 @@ class ArticleListViewController: UIViewController {
     let NativoAdRow1 = 3
     let NativoAdRow2 = 9
     
-    var bannerAd: DFPBannerView!
+    var bannerAd: GAMBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,25 +42,28 @@ class ArticleListViewController: UIViewController {
     }
     
     func setupGAM() {
-        NativoSDK.enableGAMRequests(withVersion: "7.69.0");
-        let nativoAdSize = GADAdSizeFromCGSize(kGADAdSizeNativoDefault)
-        bannerAd = DFPBannerView(adSize: nativoAdSize)
-        bannerAd.validAdSizes = [NSValueFromGADAdSize(nativoAdSize), NSValueFromGADAdSize(kGADAdSizeBanner)];
-        bannerAd.adUnitID = "/416881364/AdUnitSDK"
-        bannerAd.rootViewController = self
-        bannerAd.delegate = self
-        bannerAd.adSizeDelegate = self
-        
-        let request = DFPRequest()
-        // You custom targeting value will be given to you by your Nativo account managerx  x
-        request.customTargeting = ["ntvPlacement" : "991150"]
-        bannerAd.load(request)
+        NativoSDK.enableGAMRequests(withVersion: "8.8.0");
+        GADMobileAds.sharedInstance().start { (status: GADInitializationStatus) in
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ kGADSimulatorID ]
+            let nativoAdSize = GADAdSizeFromCGSize(kGADAdSizeNativoDefault)
+            self.bannerAd = GAMBannerView(adSize: nativoAdSize)
+            self.bannerAd.validAdSizes = [NSValueFromGADAdSize(nativoAdSize), NSValueFromGADAdSize(kGADAdSizeBanner)];
+            self.bannerAd.adUnitID = "/416881364/AdUnitSDK"
+            self.bannerAd.rootViewController = self
+            self.bannerAd.delegate = self
+            self.bannerAd.adSizeDelegate = self
+            
+            let request = GAMRequest()
+            // You custom targeting value will be given to you by your Nativo account manager
+            request.customTargeting = ["ntvPlacement" : "991150"]
+            self.bannerAd.load(request)
+        }
     }
 }
 
 extension ArticleListViewController : GADBannerViewDelegate, GADAdSizeDelegate, GADAppEventDelegate {
     
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         let nativoAdSize = GADAdSizeFromCGSize(kGADAdSizeNativoDefault)
         if GADAdSizeEqualToSize(bannerView.adSize, nativoAdSize) {
             print("GAM :: Did recieve Nativo ad")
@@ -74,12 +77,12 @@ extension ArticleListViewController : GADBannerViewDelegate, GADAdSizeDelegate, 
         }
     }
     
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
         print("Banner failed to receive ad")
     }
     
     func adView(_ bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
-        print("Banner will change to size ")
+        print("Banner will change to size %@", NSStringFromGADAdSize(size));
     }
     
 }
