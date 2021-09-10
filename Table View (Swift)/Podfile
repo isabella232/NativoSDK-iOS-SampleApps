@@ -6,6 +6,6 @@ target 'NativoSwiftTableViewSample' do
   use_frameworks!
 
   # Pods for NativoSwiftTableViewSample
-  pod 'NativoSDK', '~> 6.0.0'
+  pod 'NativoSDK'
 
 end
