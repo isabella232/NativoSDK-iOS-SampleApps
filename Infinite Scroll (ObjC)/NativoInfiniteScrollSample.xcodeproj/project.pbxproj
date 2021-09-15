@@ -207,7 +207,7 @@
 		428273381992D6C400632979 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = Nativo;
 				TargetAttributes = {
 					4282733F1992D6C400632979 = {
@@ -282,7 +282,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NativoInfiniteScrollSample/Pods-NativoInfiniteScrollSample-frameworks.sh",
-				"${PODS_ROOT}/NativoSDK/Framework/NativoSDK.framework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/NativoSDK/NativoSDK.framework/NativoSDK",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
