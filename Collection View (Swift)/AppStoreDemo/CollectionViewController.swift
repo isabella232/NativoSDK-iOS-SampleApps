@@ -18,12 +18,6 @@ class CollectionViewController: UICollectionViewController {
     let SectionUrl = "publisher.com/home"
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
-//    {
-//        didSet {
-//            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//            collectionLayout.size
-//        }
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,20 +49,20 @@ class CollectionViewController: UICollectionViewController {
         var didGetNativoAdFill: Bool = false
         if isDisneyAd(indexPath) {
             var cellId : String = "DisneyCellAlt"
-//            if indexPath.row % 12 == 1 {
-//                cellId = "DisneyCell"
-//            }
+            if indexPath.row % 12 == 1 {
+                cellId = "DisneyCell"
+            }
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
             didGetNativoAdFill = true
         }
-//        if isWebullAd(indexPath) {
-//            var cellId : String = "WebullCellAlt"
-//            if indexPath.row % 12 == 4 {
-//                cellId = "WebullCell"
-//            }
-//            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-//            didGetNativoAdFill = true
-//        }
+        if isWebullAd(indexPath) {
+            var cellId : String = "WebullCellAlt"
+            if indexPath.row % 12 == 4 {
+                cellId = "WebullCell"
+            }
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+            didGetNativoAdFill = true
+        }
         
         if !didGetNativoAdFill {
             let articleCell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier, for: indexPath) as! CollectionViewCell
@@ -225,6 +219,5 @@ extension CollectionViewController: UICollectionViewDataSourcePrefetching {
             }
         }
     }
-
 }
 
